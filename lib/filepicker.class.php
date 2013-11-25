@@ -10,8 +10,10 @@
 **/
 class Filepicker {
 
-	function __construct() {
+	var $filepicker_options = array();
 
+	function __construct() {
+		$this->filepicker_options = get_option('filepicker_options');
 	}
 
 	function store_local(){

@@ -3,7 +3,7 @@
 /*
 Plugin Name:  Filepicker.io
 Plugin URI:   http://www.donately.com
-Description:  Integration with Filepicker.io - just drop this shortcode into a post or page: [filepicker apikey=xxxxxx]
+Description:  Integration with Filepicker.io - just drop this shortcode into a post or page: [filepicker]
 Version:      1.0.0
 Author:       5ifty&5ifty
 Author URI:   https://www.fiftyandfifty.org/
@@ -19,7 +19,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 define('FILEPICKER_VERSION', '1.0.0');
 
-/* set to true for testing/debugging in development & staging environments */
+/* set to true for testing/debugging */
 //define('FILEPICKER_DEBUG', true);
 if(!defined('FILEPICKER_DEBUG')){define('FILEPICKER_DEBUG', false);}
 
@@ -27,7 +27,7 @@ define('FILEPICKER_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 define('FILEPICKER_PLUGIN_PATH', plugin_dir_path(__FILE__) );
 define('FILEPICKER_PLUGIN_BASENAME', plugin_basename(__FILE__));
 
-define('FILEPICKER_API_KEY', 'AynSKRPQ8SLW3GVMwMfM8z');
+define('FILEPICKER_API_KEY', 'Ambqy20qQqaRzj9EwQnXfz');
 
 require_once( FILEPICKER_PLUGIN_PATH . '/lib/filepicker.class.php');
 require_once( FILEPICKER_PLUGIN_PATH . '/lib/scripts.php');
@@ -35,3 +35,4 @@ require_once( FILEPICKER_PLUGIN_PATH . '/lib/shortcodes.php');
 require_once( FILEPICKER_PLUGIN_PATH . '/lib/admin_integration.php');
 require_once( FILEPICKER_PLUGIN_PATH . '/lib/filepicker_ajax.php');
 
+$_GLOBALS['filepicker'] = new Filepicker();

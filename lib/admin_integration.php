@@ -49,4 +49,37 @@ function filepicker_get_attachment_url($url, $postID)
 
 
 
+/**
+ * Add the plugins settings page
+ *
+ * @package WordPress
+ * @subpackage Filepicker.io Plugin
+ * @since 1.0.0
+ */
 
+function filepicker_add_menu_page(){
+	function filepicker_menu_page(){
+		$options_page_url = FILEPICKER_PLUGIN_PATH . '/lib/admin-options.php';
+		if(file_exists($options_page_url)){
+			include_once($options_page_url);
+		}
+	};
+	add_submenu_page( 'options-general.php', 'Filepicker', 'Filepicker', 'switch_themes', 'filepicker', 'filepicker_menu_page' );
+};
+add_action( 'admin_menu', 'filepicker_add_menu_page' );
+
+
+/**
+ * Add a link to the settings page in the plugins section
+ *
+ * @package WordPress
+ * @subpackage Filepicker.io Plugin
+ * @since 1.0.0
+ */
+
+function filepicker_plugin_settings_link($links) {
+  $settings_link = '<a href="options-general.php?page=filepicker">Settings</a>';
+  array_unshift($links, $settings_link);
+  return $links;
+}
+add_filter("plugin_action_links_" . FILEPICKER_PLUGIN_BASENAME, 'filepicker_plugin_settings_link' );
